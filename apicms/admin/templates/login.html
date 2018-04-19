@@ -1,0 +1,11 @@
+<html>
+<head>Login</head>
+<body>
+<form action="{{ url_for("admin.login") }}" method="POST">
+    <p>username:<br><input type="text" name="username" /><br></p>
+    <p>password:<br><input type="password" name="password" /><br></p>
+    {{ form.csrf_token }}
+    <p><input type="submit" value="Login"></p>
+</form>
+</body>
+</html>
