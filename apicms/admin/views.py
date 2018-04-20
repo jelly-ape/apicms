@@ -8,7 +8,7 @@ from flask_login import logout_user
 from flask_login import login_required
 # 己方库
 from apicms.admin import admin
-from apicms.admin.user import User
+from apicms.admin.models import User
 from apicms.admin.forms import LoginForm
 
 

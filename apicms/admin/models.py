@@ -1,4 +1,7 @@
 # -*- encoding: utf-8 -*-
+"""
+Admin 中的数据/对象
+"""
 from flask_login import UserMixin
 from bson.objectid import ObjectId
 from pymongo.errors import DuplicateKeyError
@@ -9,10 +12,18 @@ from apicms.db import admin_collection as table
 
 
 class User(UserMixin):
+    """
+    管理员对象
+    """
 
     def __init__(self, id, username, password_hash):
         """
-        只能被自己类调用
+        仅建立 User 对象, 并不会与数据库同步
+
+        :param id: 用户 ID, 会自动转为字符串. 必须是 ObjectId 合法格式
+        :param username: 用户名
+        :password_hash: 加密后的密码.
+                        使用 werkzeug.security.generate_password_hash
         """
         self.id = str(id)
         self._username = username

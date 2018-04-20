@@ -13,5 +13,6 @@ admin_collection = db['admin']
 admin_collection.ensure_index('username', unique=True)
 # 通用节日
 festival_collection = db['festival']
+festival_collection.ensure_index('name', unique=True)
 # 自定义节日
 big_day_collection = db['big_day']
