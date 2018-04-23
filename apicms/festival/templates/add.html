@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<form action="{{ url_for("festival.add") }}" method="POST">
+<p>名称:<br><input type="text" name="name" /><br></p>
+<p>月份:<br><input type="text" name="month" /><br></p>
+<p>日期:<br><input type="text" name="day" /><br></p>
+<p>阳历/农历:<br>
+    <input type="radio" name="is_solar" checked="checked" value="1"/>阳历
+    <br>
+    <input type="radio" name="is_solar" value="0"/>农历
+    <br>
+    {{ form.csrf_token }}
+</p>
+<p><input type="submit" value="提交"></p>
+</form>
+</body>
+</html>

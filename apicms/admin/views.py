@@ -23,7 +23,7 @@ def login():
             login_user(user)
             return redirect(request.args.get('next') or url_for('admin.home'))
 
-    return render_template('login.html', title='login', form=form)
+    return render_template('user.html', title='login', form=form)
 
 
 @admin.route('/logout')
@@ -36,4 +36,17 @@ def logout():
 @admin.route('/home')
 @login_required
 def home():
-    return render_template('admin.html', title='admin')
+    return render_template('home.html', title='admin')
+
+
+@admin.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = User.add(username, password)
+        login_user(user)
+        return redirect(request.args.get('next') or url_for('admin.home'))
+
+    return render_template('user.html', title='signup', form=form)

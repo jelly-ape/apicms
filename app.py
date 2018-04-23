@@ -5,7 +5,8 @@ from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 # 己方库
 from apicms.admin import admin
-from apicms.admin.user import User
+from apicms.festival import festival
+from apicms.admin.models import User
 
 
 app = Flask(__name__)
@@ -23,6 +24,7 @@ def load_user(user_id):
 
 def init_app():
     app.register_blueprint(admin, url_prefix='/admin')
+    app.register_blueprint(festival, url_prefix='/festival')
 
 
 init_app()

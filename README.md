@@ -4,9 +4,10 @@
 ## 1. 使用的库
 
 * flask
-* flask-RESTful
-* flask-login
+* flask_RESTful
+* flask_login
 * gunicorn
+* flask_wtf
 
 
 ## 2. API 列表

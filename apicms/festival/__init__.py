@@ -2,11 +2,11 @@
 from flask import Blueprint
 
 
-admin = Blueprint(
-    'admin',
+festival = Blueprint(
+    'festival',
     __name__,
     template_folder='templates',
     static_folder='static'
 )
 
-from apicms.admin import views
+from apicms.festival import views
