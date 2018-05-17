@@ -8,11 +8,20 @@ client = pymongo.MongoClient(
     Config.MONGO_PORT
 )
 db = client[Config.MONGO_DBNAME]
-# 管理员
-admin_collection = db['admin']
-admin_collection.ensure_index('username', unique=True)
-# 通用节日
-festival_collection = db['festival']
-festival_collection.ensure_index('name', unique=True)
-# 自定义节日
-big_day_collection = db['big_day']
+
+# 用户
+user_collection = db['user']
+user_collection.ensure_index('name', unique=True)
+
+# 组
+group_collection = db['group']
+group_collection.ensure_index('name', unique=True)
+
+
+# 类别
+category_collection = db['category']
+category_collection.ensure_index('name', unique=True)
+
+# 条目
+item_collection = db['item']
+item_collection.ensure_indexes([('name', 'user', 'category')], unique=True)
